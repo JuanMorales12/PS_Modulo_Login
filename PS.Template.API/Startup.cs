@@ -32,7 +32,12 @@ namespace PS.Template.API
             services.AddTransient<IGenericsRepository, GenericsRepository>();
 
             services.AddTransient<IUsuarioService, UsuarioService>();
-            services.AddTransient<IAutenticationQuery, UsuarioQuery>();
+            services.AddTransient<IUsuarioQueries, UsuarioQuery>();
+
+            services.AddCors(c => c.AddDefaultPolicy(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
+
+
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,12 +52,25 @@ namespace PS.Template.API
 
             app.UseRouting();
 
+            app.UseCors();
+
             app.UseAuthorization();
+
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Modulo Usuarios");
+            });
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+           
         }
     }
 }

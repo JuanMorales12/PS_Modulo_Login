@@ -1,4 +1,5 @@
-﻿{
+﻿
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
@@ -14,18 +15,58 @@
       "launchBrowser": true,
       "launchUrl": "Usuario",
       "environmentVariables": {
+
         "ENVIRONMENT": "Development",
+        //"ASPNETCORE_ENVIROMENT": "Development",
+        
         "Clave": "Valor"
       }
     },
     "PS.Template.API": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "Usuario",
+      "launchUrl": "api/Usuario",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Local"
       },
-      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+      "applicationUrl": "https://localhost:5003;http://localhost:6000"
     }
   }
 }
+  /*
+
+
+
+  {
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:47439",
+      "sslPort": 44371
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "weatherforecast",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "PS.TP2_Cine.WebAPI": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "weatherforecast",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+
+
+*/

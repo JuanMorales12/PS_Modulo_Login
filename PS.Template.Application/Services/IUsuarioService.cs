@@ -13,5 +13,7 @@ namespace PS.Template.Application.Services
         Usuario GetUserByDNI(int dni);
 
         IList<UsuarioDTO> GetAll();
+
+        Usuario GetUsuarioByUsernameAndPasswd(string username);
     }
 }

@@ -64,11 +64,17 @@ namespace PS.Template.AccessData.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("Contraseña")
+                    b.Property<string>("Contraseña")
+                        .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Correo")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Direccion")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
@@ -99,6 +105,47 @@ namespace PS.Template.AccessData.Migrations
                     b.HasIndex("TipoId");
 
                     b.ToTable("Usuarios");
+
+                    b.HasData(
+                        new
+                        {
+                            UsuarioId = 1,
+                            Apellido = "Corrales",
+                            Contraseña = "1234",
+                            Correo = "manuelcorrales@gmail.com",
+                            Direccion = "Calle manuel 123",
+                            Dni = 12345678,
+                            Nombre = "Manuel",
+                            NombreUsuario = "manuel123",
+                            Telefono = 42202223,
+                            TipoId = 3
+                        },
+                        new
+                        {
+                            UsuarioId = 5,
+                            Apellido = "Rensi",
+                            Contraseña = "1234",
+                            Correo = "camilorensi@gmail.com",
+                            Direccion = "Calle camilo 123",
+                            Dni = 123456700,
+                            Nombre = "Camilo",
+                            NombreUsuario = "camilo123",
+                            Telefono = 42202000,
+                            TipoId = 3
+                        },
+                        new
+                        {
+                            UsuarioId = 10,
+                            Apellido = "Perez",
+                            Contraseña = "1234",
+                            Correo = "juanperez@gmail.com",
+                            Direccion = "Calle juan 123",
+                            Dni = 12340000,
+                            Nombre = "Juan",
+                            NombreUsuario = "juan123",
+                            Telefono = 42005555,
+                            TipoId = 2
+                        });
                 });
 
             modelBuilder.Entity("PS.Template.Domain.Entities.Usuario", b =>

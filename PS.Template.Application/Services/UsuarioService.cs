@@ -10,11 +10,11 @@ namespace PS.Template.Application.Services
     public class UsuarioService : IUsuarioService
     {
         private readonly IGenericsRepository _repository;
-        private readonly IAutenticationQuery _query;
+        private readonly IUsuarioQueries _query;
 
         
 
-        public UsuarioService(IGenericsRepository repository, IAutenticationQuery query)
+        public UsuarioService(IGenericsRepository repository, IUsuarioQueries query)
         {
             _repository = repository;
             _query = query;
@@ -31,7 +31,7 @@ namespace PS.Template.Application.Services
                 Dni = usuario.Dni,
                 Correo = usuario.Correo,
                 Telefono = usuario.Telefono,
-
+                Direccion = usuario.Direccion
             };
             _repository.Add<Usuario>(entity);
 
@@ -51,6 +51,11 @@ namespace PS.Template.Application.Services
         public IList<UsuarioDTO> GetAll()
         {
             return _query.GetAll();
+        }
+
+        public Usuario GetUsuarioByUsernameAndPasswd(string username)
+        {
+            return _query.GetUsuarioByUsernameAndPasswd(username);
         }
 
     }

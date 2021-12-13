@@ -13,9 +13,11 @@ namespace PS.Template.Domain.DTOs
 
         public string NombreUsuario { get; set; }
 
-        public int Contraseña { get; set; }
+        public string Contraseña { get; set; }
 
         public int Dni { get; set; }
+
+        public string Direccion { get; set; }
 
         public string Correo { get; set; }
 
